@@ -1,100 +1,114 @@
-/* Qodo Forum - базовые стили */
+/* Qodo Forum - редакционный стиль, похожий на max.ru */
 :root{
-  --bg:#0f1221;
-  --panel:#171a2f;
-  --panel-2:#1f2342;
-  --text:#e7e9ff;
-  --muted:#aeb3d7;
-  --brand:#6c7bff;
-  --brand-2:#8aa2ff;
-  --accent:#00d1b2;
-  --danger:#ff5c7a;
-  --warn:#f6c945;
-  --border: #2b3059;
-  --shadow: 0 10px 30px rgba(0,0,0,.35);
-  --radius: 12px;
+/* Светлая редакционная палитра */
+--bg:#ffffff;
+--panel:#ffffff;
+--panel-2:#fafafa;
+--text:#111827;
+--muted:#6b7280;
+--brand:#111827;
+--brand-2:#111827;
+--accent:#2563eb;
+--danger:#ef4444;
+--warn:#f59e0b;
+--border:#e5e7eb;
+--shadow: 0 8px 30px rgba(0,0,0,.06);
+--radius: 14px;
+
+--primary-color:#111827;
+--secondary-color:#6b7280;
+--background-color:#ffffff;
+--card-color:#ffffff;
+--border-color:#e5e7eb;
 }
 *{box-sizing:border-box}
 html,body{height:100%}
 body{
-  margin:0;
-  font-family:Inter,system-ui,Segoe UI,Roboto,Arial,Helvetica,sans-serif;
-  background: radial-gradient(1200px 800px at 10% -10%, rgba(108,123,255,.15), transparent 50%), radial-gradient(900px 600px at 100% 0%, rgba(0,209,178,.12), transparent 50%), var(--bg);
-  color:var(--text);
+margin:0;
+font-family: Inter, ui-sans-serif, system-ui, Segoe UI, Roboto, Arial, Helvetica, sans-serif;
+-webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+background: var(--background-color);
+color:var(--text);
 }
-.container{max-width:1100px;margin:0 auto;padding:0 16px}
+.container{max-width:1120px;margin:0 auto;padding:0 20px}
 
+/* Шапка как у редакционного медиа */
 .site-header{
-  position:sticky;top:0;z-index:5;
-  background:rgba(15,18,33,.75);
-  backdrop-filter: saturate(1.2) blur(8px);
-  border-bottom:1px solid var(--border);
+position:sticky;top:0;z-index:10;
+background:rgba(255,255,255,.85);
+backdrop-filter:saturate(1.2) blur(10px);
+border-bottom:1px solid var(--border);
 }
-.header-inner{display:flex;align-items:center;justify-content:space-between;min-height:64px}
+.header-inner{display:flex;align-items:center;justify-content:space-between;min-height:72px}
 .brand{display:flex;flex-direction:column;gap:2px}
-.logo{font-weight:800;letter-spacing:.3px}
+.logo{font-weight:900;letter-spacing:.2px;font-size:20px}
 .tagline{font-size:12px;color:var(--muted)}
 .header-actions{display:flex;align-items:center;gap:12px}
 
-.site-footer{margin-top:40px;border-top:1px solid var(--border);background:rgba(15,18,33,.75)}
-.footer-inner{min-height:60px;display:flex;align-items:center;justify-content:space-between}
+/* Подвал минималистичный */
+.site-footer{margin-top:48px;border-top:1px solid var(--border);background:#fff}
+.footer-inner{min-height:68px;display:flex;align-items:center;justify-content:space-between}
 .footer-link{color:var(--muted);text-decoration:none}
 .footer-link:hover{color:var(--text)}
 
-/* UI */
-.btn{appearance:none;border:0;border-radius:10px;padding:10px 14px;background:linear-gradient(180deg,var(--brand),var(--brand-2));color:white;font-weight:600;cursor:pointer;box-shadow:var(--shadow);}
-.btn:hover{filter:brightness(1.04)}
+/* UI - плоские кнопки, акценты ч/б */
+.btn{appearance:none;border:1px solid var(--border);border-radius:999px;padding:10px 16px;background:#111827;color:#fff;font-weight:600;cursor:pointer;box-shadow:none;transition:.15s ease} 
+.btn:hover{filter:brightness(1.06)}
 .btn:active{transform:translateY(1px)}
-.btn-ghost{background:transparent;border:1px solid var(--border);color:var(--text);box-shadow:none}
-.btn-ghost:hover{background:rgba(255,255,255,.03)}
-.btn-danger{background:linear-gradient(180deg,#ff6f8a,var(--danger))}
-.btn-accent{background:linear-gradient(180deg,#11e3c3,var(--accent));color:#00262a}
+.btn-ghost{background:#fff;border:1px solid var(--border);color:var(--text)}
+.btn-ghost:hover{background:#f9fafb}
+.btn-danger{background:#ef4444;border-color:#ef4444}
+.btn-accent{background:#111827;color:#fff}
+.small.btn,.btn.small{padding:6px 10px;font-size:12px}
 
-.input, .select, .textarea{width:100%;padding:10px 12px;border-radius:10px;border:1px solid var(--border);background:var(--panel);color:var(--text)}
-.input:focus, .select:focus, .textarea:focus{outline:2px solid rgba(138,162,255,.4);border-color:transparent}
-.textarea{min-height:100px;resize:vertical}
+.input, .select, .textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--border);background:#fff;color:var(--text)}
+.input:focus, .select:focus, .textarea:focus{outline:2px solid rgba(17,24,39,.2);border-color:#c7cad1}
+.textarea{min-height:120px;resize:vertical;line-height:1.6}
 
 .row{display:flex;gap:12px;flex-wrap:wrap}
 .grow{flex:1 1 auto}
 
-.card{background:linear-gradient(180deg,var(--panel),var(--panel-2));border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow)}
-.card .card-header{padding:14px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
-.card .card-body{padding:14px 16px}
-.card .card-footer{padding:12px 16px;border-top:1px solid var(--border)}
+/* Карточки более воздушные */
+.card{background:var(--card-color);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow)}
+.card .card-header{padding:18px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.card .card-body{padding:18px 20px}
+.card .card-footer{padding:14px 20px;border-top:1px solid var(--border)}
 
+/* Список в стиле ленты */
 .list{display:flex;flex-direction:column}
-.list .item{display:flex;gap:12px;align-items:flex-start;padding:12px 16px;border-top:1px solid var(--border)}
+.list .item{display:flex;gap:14px;align-items:flex-start;padding:16px 20px;border-top:1px solid var(--border)}
 .list .item:first-child{border-top:none}
-.list .item:hover{background:rgba(255,255,255,.02)}
+.list .item:hover{background:#fafafa}
 .meta{font-size:12px;color:var(--muted)}
-.badge{display:inline-flex;align-items:center;gap:6px;padding:4px 8px;border-radius:999px;border:1px solid var(--border);background:rgba(255,255,255,.04);color:var(--text);font-size:12px}
+.badge{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;border:1px solid var(--border);background:#fff;color:var(--text);font-size:12px}
 
-.topic{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;background:rgba(108,123,255,.1);border:1px solid rgba(138,162,255,.4)}
-.topic .dot{width:8px;height:8px;border-radius:50%;background:var(--brand-2)}
+/* Тема (label) менее яркая */
+.topic{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;background:#f3f4f6;border:1px solid var(--border)}
+.topic .dot{width:8px;height:8px;border-radius:50%;background:#111827}
 
 /* Layout */
-main .container{padding-top:20px}
-.grid{display:grid;grid-template-columns:1fr 320px;gap:16px}
-@media (max-width: 960px){.grid{grid-template-columns:1fr}}
+main .container{padding-top:24px}
+.grid{display:grid;grid-template-columns:1fr 320px;gap:20px}
+@media (max-width: 1024px){.grid{grid-template-columns:1fr}}
 
 /* Auth */
-.auth-panel{max-width:480px;margin:24px auto}
+.auth-panel{max-width:520px;margin:24px auto}
 .auth-toggle{display:flex;gap:8px;justify-content:center;margin-bottom:12px}
 
 /* Onboarding */
 .onboarding.hidden{display:none}
 .onboarding{position:fixed;inset:0;display:grid;place-items:center}
-.onboarding-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.5);backdrop-filter:blur(2px)}
-.onboarding-content{position:relative;z-index:1;width:min(720px,calc(100% - 24px));background:linear-gradient(180deg,var(--panel),var(--panel-2));border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow)}
-.onboarding-header{padding:16px;border-bottom:1px solid var(--border)}
-.onboarding-body{padding:16px;line-height:1.6}
-.onboarding-footer{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-top:1px solid var(--border)}
+.onboarding-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.35);backdrop-filter:blur(2px)}
+.onboarding-content{position:relative;z-index:1;width:min(720px,calc(100% - 24px));background:#fff;border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow)}
+.onboarding-header{padding:18px;border-bottom:1px solid var(--border)}
+.onboarding-body{padding:18px;line-height:1.7;color:#374151}
+.onboarding-footer{display:flex;align-items:center;justify-content:space-between;padding:12px 18px;border-top:1px solid var(--border)}
 .checkbox{display:inline-flex;align-items:center;gap:8px;color:var(--muted)}
 
 /* Utility */
-.empty{padding:24px;text-align:center;color:var(--muted)}
+.empty{padding:28px;text-align:center;color:var(--muted)}
 .separator{height:1px;background:var(--border);margin:8px 0}
-.actions{display:flex;gap:8px;flex-wrap:wrap}
+.actions{display:flex;gap:10px;flex-wrap:wrap}
 .right{margin-left:auto}
 .left{margin-right:auto}
 .small{font-size:12px}
@@ -102,8 +116,22 @@ main .container{padding-top:20px}
 .nowrap{white-space:nowrap}
 
 /* Avatars */
-.avatar{width:28px;height:28px;border-radius:50%;background:linear-gradient(180deg,#4956aa,#2c326f);display:grid;place-items:center;font-size:12px;font-weight:700;color:#e7ebff;border:1px solid var(--border)}
+.avatar{width:28px;height:28px;border-radius:50%;background:#111827;display:grid;place-items:center;font-size:12px;font-weight:700;color:#fff;border:1px solid #0f172a}
 .user-chip{display:inline-flex;align-items:center;gap:8px}
 
 /* Code-like */
-.code{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; background:rgba(0,0,0,.2); padding:2px 6px; border-radius:6px; border:1px solid var(--border)}
+.code{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; background:#f3f4f6; padding:2px 6px; border-radius:6px; border:1px solid var(--border)}
+
+/* Мобильные улучшения */
+@media (max-width: 640px){
+.header-inner{min-height:64px}
+.brand .tagline{display:none}
+.container{padding:0 14px}
+.grid{gap:12px}
+.card{border-radius:12px}
+.card .card-header,.card .card-body,.card .card-footer{padding:14px}
+.list .item{padding:12px 14px}
+.btn{padding:10px 14px}
+.input,.select,.textarea{padding:10px 12px;border-radius:10px}
+.topic{padding:4px 8px}
+}
