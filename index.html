@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Qodo Forum — Локальный форум</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <span class="logo">Qodo Forum</span>
+        <span class="tagline">Мини‑форум с авторизацией, темами и вопросами</span>
+      </div>
+      <div class="header-actions">
+        <button id="helpBtn" class="btn btn-ghost" title="Открыть обучение">Помощь</button>
+        <div id="userArea"></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <noscript>
+      Для работы приложения требуется JavaScript. Включите JavaScript в браузере.
+    </noscript>
+    <div id="app"></div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> Qodo Forum</span>
+      <div class="actions">
+        <a class="footer-link" href="https://opensource.org/license/mit" target="_blank" rel="noreferrer noopener">MIT License</a>
+        <a class="footer-link" href="https://github.com/yannyworldtehpoddershka-cloud/qodo-forum" target="_blank" rel="noreferrer noopener">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Обучение / онбординг -->
+  <div id="onboarding" class="onboarding hidden" role="dialog" aria-modal="true" aria-labelledby="onboarding-title">
+    <div class="onboarding-backdrop"></div>
+    <div class="onboarding-content">
+      <div class="onboarding-header">
+        <h2 id="onboarding-title">Добро пожаловать в Qodo Forum</h2>
+      </div>
+      <div id="onboardingBody" class="onboarding-body"></div>
+      <div class="onboarding-footer">
+        <div class="left">
+          <label class="checkbox">
+            <input type="checkbox" id="dontShowAgain" />
+            <span>Больше не показывать</span>
+          </label>
+        </div>
+        <div class="right">
+          <button id="onboardingPrev" class="btn btn-ghost">Назад</button>
+          <button id="onboardingNext" class="btn">Далее</button>
+          <button id="onboardingClose" class="btn btn-ghost">Закрыть</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script defer src="app.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

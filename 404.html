@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Перенаправление…</title>
+  <style>
+    html,body{height:100%}body{margin:0;display:grid;place-items:center;font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;background:#0f1221;color:#e7e9ff}
+    .card{padding:16px 20px;border-radius:12px;background:#171a2f;border:1px solid #2b3059;max-width:640px}
+    a{color:#8aa2ff}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1 style="margin:0 0 8px 0">Переход…</h1>
+    <p>Страница не найдена. Выполняется перенаправление на главную страницу проекта.</p>
+    <p>Если перенаправление не произошло автоматически, нажмите: <a id="manual" href="/qodo-forum/">/qodo-forum/</a></p>
+  </div>
+  <script>
+    (function(){
+      var repoBase = '/qodo-forum/';
+      var target = location.origin + repoBase;
+      // Если нужно сохранить исходный путь как якорь, можно раскомментировать:
+      // var rest = location.pathname.replace(repoBase, '');
+      // if (rest && rest !== '/') target += '#' + rest;
+      try{ window.location.replace(target); }catch(e){ window.location.href = target; }
+    })();
+  </script>
+</body>
+</html>
